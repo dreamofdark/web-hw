@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+  <title>Ask&amp;Answer</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/askme.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+
+<!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+</head>
+<body class="background-body">
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top navbar-color">
+      <a class="navbar-brand gradient-text" href="{% url 'index' %}">Ask&amp;Answer</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form class="form-inline navbar-search mt-2 mt-md-0"> 
+          <input class="form-control search-field mr-sm-2" id="search-input" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-info btn-with-search my-2 my-sm-0" type="submit">
+            <i class="fas fa-search"></i></button>
+        </form>
+        <div class="navbar-nav ml-auto">
+              {% if not authentificated %} 
+                <div class="btn-ask-block"> 
+                  <a href="{% url 'login' %}" class="btn btn-light my-2 my-sm-0" id="btn-ask" type="submit">ASK!</a>
+                </div>  
+                 <div class="auth ">
+    <!--                 неавторизованный пользователь -->
+                  <div class="non-auth-item">
+                    <a class="nav-link my-2 my-sm-0" href="{% url 'login' %}"> <span class="sign-buttons">Sign in</span> </a>
+                  </div>
+                  <div class="non-auth-item">
+                    <a class="nav-link my-2 my-sm-0" href="{% url 'signup' %}"><span class="sign-buttons">Sign up</span></a>
+                  </div>
+                </div>
+               {% else %}            
+<!--                 авторизованный пользователь -->
+                <div class="btn-ask-block"> 
+                  <a href="{% url 'ask' %}" class="btn btn-light my-2 my-sm-0" id="btn-ask" type="submit">ASK!</a>
+                </div>  
+                <div class="auth ">
+                  {% load static %}
+                  <img src="{% static 'img/ketnipz.jpg' %}" alt="" class="avatar">
+                  <div class="auth-text-block">
+                    <div class="auth-row">
+                      <a href="" class="auth-item decor-name">
+                        Ketnipz Ketnipz
+                      </a>
+                    </div>
+                    <div class="auth-row">
+                      <a href="{% url 'settings' %}" class="auth-item decor-item">
+                        Settings
+                      </a>
+                      <a href="{% url 'logout' %}" class="auth-item decor-item">
+                        Log out
+                      </a>
+                    </div>
+                  </div>
+              {% endif%}
+             </div>
+          </div>   
+        </div>
+      </nav>
+  </header>
+
+
+    <div class="main ml-5 mr-5">
+      <div class="row justify-content-center">
+
+        <div class="col-lg-6 col-md-8 list-question">
+        <div class="row sort-question">
+          {% block title %}
+<!--           <a href="" class="q-type">New Questions</a>
+          <a href="" class="q-type">Top Questions</a>
+          <h5 class="p-0 m-0"><div class="q-type">New Questions</div></h5>
+          <h5 class="p-0 m-0"><div class="q-type">Top Questions</div></h5> -->
+          {% endblock %}
+        </div>
+
+        {% block content %} {% endblock %}
+
+<!--         <div class="row question-block">
+            <div class="col-md-2 m-0 p-0">
+              <div class="user">
+                 <img src="img/ketnipz.jpg" alt="avatar" class="question-picture"></div>
+                 <div class="user-name"> Ketnipz Ketnipz</div>
+                 <div class="raiting-block">
+                  <ul class="list-inline m-0">
+                    <il class="list-inline-item m-0 arrow"><i class="fas fa-angle-up"></i></il>
+                    <il class="list-inline-item m-0 raiting">104</il>
+                    <il class="list-inline-item m-0 arrow"><i class="fas fa-angle-down"></i></il>
+                   </ul>
+                 </div>
+              </div>
+            
+            <div class="col-md-10 pl-0 ">
+              <a href="" class = "question-title"><h4 class="question-title">How to ask a question?</h4></a>
+              <p class="q-text "> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore fuga minima atque repellendus cupiditate, amet nulla commodi obcaecati ullam molestiae nam veritatis facere molestias</p>
+              <div class="q-footer">
+                <div class="question-tags ml-aut">
+                  <a href="" class="q-tag">sleep</a>
+                  <a href="" class="q-tag">work</a>
+                  <a href="" class="q-tag">coffee</a>
+                  <a href="" class="q-tag">ketnipz</a>  
+                </div>
+                <div class="right-button"> <button type="button" class="btn btn-link ml-auto pull-right" id="btn-answer">Answers</button></div>  
+              </div>             
+            </div>
+        </div> -->
+
+        </div>
+
+<!-- правая колонка -->
+      <div class="col-md-3 col-lg-3">
+
+        <div class="right-block">
+          
+          <div class="tags-block">
+            {% block tags %}
+            <div class="card-body card-body-tags">
+               <h5 class="tags-block-text">Popular Tags</h5>
+               {% for onetag in tags %}
+               <a href="{% url 'tag' onetag|lower %}" class="tag">{{onetag}}</a>
+               {% empty %}
+               <p class ="tag">No tags now</p>
+               {% endfor%}
+            </div> 
+            {% endblock %}
+          </div>
+
+          <div class="tags-block">
+            {% block member %}
+            <div class="card-body card-body-members">
+               <h5 class="memb-block-text">Best Members</h5>
+               <ul class="member-list">
+                 <li class="mem-in-list"><a href="" class="member">Top Member 1</a></li>
+                 <li class="mem-in-list"><a href="" class="member">Top Member 2</a></li>
+                 <li class="mem-in-list"><a href="" class="member">Top Member 3</a></li>
+                 <li class="mem-in-list"><a href="" class="member">Top Member 4</a></li>
+                 <li class="mem-in-list"><a href="" class="member">Top Member 50</a></li>
+              </ul>
+            </div>
+            {% endblock %} 
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="{% static 'js/jquery-3.2.1.slim.min.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/fontawesome-all.js' %}"></script>
+  <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+
+</body>
+</html>

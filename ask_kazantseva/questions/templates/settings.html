@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block title %}
+  <h4 class="p-0 m-0"><div class="q-type-title">Settings</div></h4>
+{% endblock %}
+
+{% block content %} 
+ <form class="settings">
+
+  <div class="form-group row">
+    <label for="staticLogin" class="col-sm-2 col-form-label ask-title">Login</label>
+    <div class="col-sm-10">
+      <input type="text" required readonly class="form-control" id="staticLogin" value="ketNipz_043">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="Nick" class="col-sm-2 col-form-label ask-title">NickName</label>
+    <div class="col-sm-10">
+      <input type="text" required class="form-control" id="Nick" placeholder="NickName">
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <label for="staticEmail" class="col-sm-2 col-form-label ask-title">Email</label>
+    <div class="col-sm-10">
+      <input type="email" required class="form-control" id="staticEmail" placeholder="Email">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="Avatar" class="col-sm-2 col-form-label ask-title">Avatar</label>
+    <div class="col-sm-10">
+      <div class="set-avatar">
+        <img src="{% static 'img/ketnipz.jpg' %}" alt="avatar" class="question-picture">
+      </div>
+      <input type="file" id="Avatar" placeholder="">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-10"> 
+      <button  class="btn btn-info my-2 my-sm-0 ml-0" id="btn-ask" type="submit">Save</button>
+      <!-- <button type="submit" class="btn btn-primary">Sign in</button> -->
+    </div>
+  </div>
+
+
+</form> 
+{% endblock %}
+

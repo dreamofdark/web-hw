@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %} 
+<div class="row main-question-block">
+    <div class="col-md-2 m-0 p-0">
+      <div class="user">
+         <img src="{% static 'img/ketnipz.jpg' %}" alt="avatar" class="main-question-picture"></div>
+         <div class="user-name">{{question.author}}</div>
+         <div class="raiting-block">
+          <ul class="list-inline m-0">
+            <il class="list-inline-item m-0 arrow"><i class="fas fa-angle-up"></i></il>
+            <il class="list-inline-item m-0 raiting">{{question.rating}}</il>
+            <il class="list-inline-item m-0 arrow"><i class="fas fa-angle-down"></i></il>
+           </ul>
+         </div>
+      </div>
+    
+    <div class="col-md-10 ">
+      <h4 class="question-title">{{question.title}}</h4>
+      <p class="q-text ">{{question.text}}</p>
+      <div class="q-footer">
+        <div class="question-tags ml-aut">
+            {% for usertag in question.tags.all %}
+              <a href="{% url 'tag' usertag|lower %}" class="q-tag">{{usertag}}</a>
+            {% endfor %}
+        </div>
+      </div>           
+    </div> 
+</div>
+
+ {% for answer in answers %}
+  {% include 'answer.html' with answ=answer only %}
+  {% empty %}
+  <h6 class="empty"> Sorry, there are no answers. You can answer!</h6>       
+{% endfor %}
+
+
+<div class="answer-block p-0">
+  <div class="input-group p-0">
+   <textarea class="form-control" id="text-area-shadow" aria-label="answer" placeholder="Enter your question here"></textarea>
+  </div>
+  <div class="right-button mt-2"> <button type="button" class="btn btn-link ml-auto pull-right" id="btn-answer">Answer</button></div>
+</div>
+
+
+{% include 'pagination.html' with q=answers %}
+
+
+{% endblock %}
+
+
+

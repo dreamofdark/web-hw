@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+
+{% if page_type == 'index' %}
+  <h4 class="p-0 m-0"><a href="" class="q-type">New Questions</a></h4>
+  <h4 class="p-0 m-0"><a href="{% url 'hot' %}" class="q-type-not-active q-type" >Top Questions</a></h4>
+{% else %}
+  {% if page_type == 'hot' %}
+    <h4 class="p-0 m-0"><a href="{% url 'index' %}" class="q-type-not-active q-type">New Questions</a></h4>
+    <h4 class="p-0 m-0"><a href="" class="q-type" >Top Questions</a></h4>
+  {% else %}
+    <h4 class="p-0 m-0"><a href="" class="q-type">Tag: {{tag}}</a></h4>
+<!--     <h4 class="p-0 m-0"><a href="{% url 'index' %}" class="q-type q-type-not-active " >New Questions</a></h4> -->
+  {% endif%}
+{% endif %}  
+
+{% endblock %}
+
+{% block content %} 
+
+{% for q in questions %}
+  {% include 'post.html' with question=q %}
+  {% empty %}
+  <h6 class="empty"> Sorry, there are no questions. You can ask something!</h6>       
+{% endfor %}
+
+
+{% include 'pagination.html' with q=questions %}
+
+{% endblock %}
+
+
+
+
+
+          

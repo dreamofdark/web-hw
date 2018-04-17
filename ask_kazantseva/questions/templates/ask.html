@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block title %}
+  <h4 class="p-0 m-0"><div class="q-type-title">New Questions</div></h4>
+{% endblock %}
+
+{% block content %} 
+<form class="ask">
+
+  <div class="row ask-field p-0">
+    <div class="col-md-1 m-0 p-0">
+      <label for="QuestionTitle" class="ask-title">
+        Title
+      </label>     
+    </div>
+    <div class="col-md-11">
+      <div class="input-group p-0">
+        <textarea class="form-control" required id="QuestionTitle" placeholder="Enter the title of your question" aria-label="title"></textarea>
+      </div> 
+    </div>
+  </div>
+
+  <div class="row ask-field p-0">
+    <div class="col-md-1 m-0 p-0">
+      <label for="question" class="ask-title">
+        Text
+      </label>    
+    </div>
+    <div class="col-md-11">
+      <div class="input-group p-0">
+        <textarea class="form-control" required id="question" aria-label="text" placeholder="Enter your question"></textarea>
+      </div> 
+    </div>
+  </div>
+
+  <div class="row ask-field p-0">
+    <div class="col-md-1 m-0 p-0">
+      <label for="QuestionTags" class="ask-title">
+        Tags
+      </label>    
+    </div>
+    <div class="col-md-11">
+      <div class="input-group p-0">
+        <textarea class="form-control" required id="QuestionTags" aria-label="tags" placeholder="Enter tags"></textarea>
+      </div> 
+    </div>
+  </div>
+
+  <div class="right-button mt-2"><button class="btn btn-info my-2 my-sm-0" id="btn-ask" type="submit">ASK!</button></div>
+
+</form>
+{% endblock %}
+
+
+

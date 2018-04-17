@@ -1,0 +1,33 @@
+
+{% load static %}
+
+<div class="row question-block">
+  <div class="col-md-2 m-0 p-0">
+
+    <div class="user">
+     <img src="{% static 'img/ketnipz.jpg' %}" alt="avatar" class="question-picture"></div>
+     <div class="user-name"> {{question.author}}</div>
+     <div class="raiting-block">
+      <ul class="list-inline m-0">
+        <il class="list-inline-item m-0 arrow"><i class="fas fa-angle-up"></i></il>
+        <il class="list-inline-item m-0 raiting">{{question.rating}}</il>
+        <il class="list-inline-item m-0 arrow"><i class="fas fa-angle-down"></i></il>
+       </ul>
+     </div>
+  </div>
+
+
+
+  <div class="col-md-10 pl-0 ">
+    <a href="{% url 'question' question.id %}" class = "question-title"><h4 class="question-title">{{question.title}}</h4></a>
+    <p class="q-text "> {{question.text| truncatewords:28}}</p>
+    <div class="q-footer">
+      <div class="question-tags">
+        {% for usertag in question.tags.all %}
+          <a href="{% url 'tag' usertag|lower %}" class="q-tag">{{usertag}}</a>
+        {% endfor %}
+      </div>
+      <div class="right-button"> <a href="{% url 'question' question.id %}" type="button" class="btn btn-link ml-auto pull-right" id="btn-answer">Answers</a></div>  
+    </div>             
+  </div>
+</div>

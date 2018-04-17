@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+  <title>Ask&amp;Answer</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/askme.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body class="background-body">
+
+  <header>
+      <nav class="navbar navbar-expand-lg navbar-light sticky-top navbar-color">
+        <a class="navbar-brand gradient-text" href="#">Ask&amp;Answer</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <form class="form-inline navbar-search mt-2 mt-md-0"> 
+            <input class="form-control search-field mr-sm-2" id="search-input" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-info btn-with-search my-2 my-sm-0" type="submit">
+              <i class="fas fa-search"></i></button>
+          </form>
+          <div class="navbar-nav ml-auto">
+              <div class="btn-ask-block"> <button class="btn btn-light my-2 my-sm-0" id="btn-ask" type="submit">ASK!</button></div>  
+
+               <div class="auth ">
+<!--                 неавторизованный пользователь -->
+<!--                 <div class="non-auth-item">
+                  <a class="nav-link my-2 my-sm-0" href="#"> <span class="sign-buttons">Sign in</span> </a>
+                </div>
+                <div class="non-auth-item">
+                  <a class="nav-link my-2 my-sm-0" href="#"><span class="sign-buttons">Sign up</span></a>
+                </div> -->
+                           
+<!--                 авторизованный пользователь -->
+                <img src="img/ketnipz.jpg" alt="" class="avatar">
+                <div class="auth-text-block">
+                  <div class="auth-row">
+                    <a href="" class="auth-item decor-name">
+                      Ketnipz Ketnipz
+                    </a>
+                  </div>
+                  <div class="auth-row">
+                    <a href="" class="auth-item decor-item">
+                      Settings
+                    </a>
+                    <a href="" class="auth-item decor-item">
+                      Log out
+                    </a>
+                  </div>
+                </div>
+
+             </div>
+          </div>   
+        </div>
+      </nav>
+  </header>
+
+
+    <div class="main ml-5 mr-5">
+      <div class="row justify-content-center">
+
+        <div class="col-lg-6 col-md-8 list-question">
+
+          <div class="row sort-question">
+            <h4 class="p-0 m-0"><div class="q-type-title">New Questions</div></h4>
+          </div>
+
+          <form class="ask">
+
+          <div class="row ask-field p-0">
+            <div class="col-md-1 m-0 p-0">
+              <label for="QuestionTitle" class="ask-title">
+                Title
+              </label>     
+            </div>
+            <div class="col-md-11">
+              <div class="input-group p-0">
+                <textarea class="form-control" id="QuestionTitle" placeholder="Enter the title of your question" aria-label="title"></textarea>
+              </div> 
+            </div>
+          </div>
+
+          <div class="row ask-field p-0">
+            <div class="col-md-1 m-0 p-0">
+              <label for="question" class="ask-title">
+                Text
+              </label>    
+            </div>
+            <div class="col-md-11">
+              <div class="input-group p-0">
+                <textarea class="form-control " id="question" aria-label="text" placeholder="Enter your question"></textarea>
+              </div> 
+            </div>
+          </div>
+
+          <div class="row ask-field p-0">
+            <div class="col-md-1 m-0 p-0">
+              <label for="QuestionTags" class="ask-title">
+                Tags
+              </label>    
+            </div>
+            <div class="col-md-11">
+              <div class="input-group p-0">
+                <textarea class="form-control" id="QuestionTags" aria-label="tags" placeholder="Enter tags"></textarea>
+              </div> 
+            </div>
+          </div>
+
+          <div class="right-button mt-2"><button class="btn btn-info my-2 my-sm-0" id="btn-ask" type="submit">ASK!</button></div>
+          </form>
+
+        </div>
+
+<!-- правая колонка -->
+        <div class="col-md-3 col-lg-3">
+          <div class="right-block">
+          <div class="tags-block">
+            <div class="card-body card-body-tags">
+               <h5 class="tags-block-text">Popular Tags</h5>
+               <a href="" class="tag">perl</a>
+               <a href="" class="tag">Python</a>
+               <a href="" class="tag">SQL</a>
+               <a href="" class="tag">data</a>
+               <a href="" class="tag">TechnoPark</a>
+               <a href="" class="tag">mail</a>
+               <a href="" class="tag">Google</a>
+               <a href="" class="tag">code</a>
+             </div> 
+          </div>
+
+          <div class="tags-block">
+            <div class="card-body card-body-members">
+               <h5 class="memb-block-text">Best Members</h5>
+               <ul class="member-list">
+                 <li class="mem-in-list"><a href="" class="member">Top Member 1</a></li>
+                 <li class="mem-in-list"><a href="" class="member">Top Member 2</a></li>
+                 <li class="mem-in-list"><a href="" class="member">Top Member 3</a></li>
+                 <li class="mem-in-list"><a href="" class="member">Top Member 4</a></li>
+                 <li class="mem-in-list"><a href="" class="member">Top Member 50</a></li>
+               </ul>
+             </div> 
+           </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!--     <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+    </footer> -->
+
+  <script src="js/jquery-3.2.1.slim.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/fontawesome-all.js"></script>
+  <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+
+</body>
+</html>

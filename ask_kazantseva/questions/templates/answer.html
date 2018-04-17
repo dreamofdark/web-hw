@@ -1,0 +1,30 @@
+
+{% load static %}
+
+<div class="row question-block">
+    <div class="col-md-2 m-0 p-0">
+      <div class="user">
+         <img src="{% static 'img/ketnipz.jpg' %}" alt="avatar" class="question-picture"></div>
+         <div class="user-name"> {{answ.author}}</div>
+         <div class="raiting-block mt-2">
+          <ul class="list-inline m-0">
+            <il class="list-inline-item m-0 arrow"><i class="fas fa-angle-up"></i></il>
+            <il class="list-inline-item m-0 raiting">{{answ.rating}}</il>
+            <il class="list-inline-item m-0 arrow"><i class="fas fa-angle-down"></i></il>
+           </ul>
+         </div>
+      </div>
+    
+    <div class="col-md-10 pl-0 ">
+      <p class="q-text-answer">{{answ.text}}</p>
+      <div class="q-footer">
+          <div class="check-box">
+            <input type="checkbox">
+            <label class="check-label">Correct!</label>
+          </div> 
+      </div>             
+    </div>
+</div>
+
+
+
